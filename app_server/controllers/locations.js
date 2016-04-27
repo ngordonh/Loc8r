@@ -74,16 +74,12 @@ module.exports.locationInfo = function(req, res){
           });
         };
 /* GET 'Add review' page */
-module.exports.addReview = function (req,res) {
-    res.render('index', {title: 'Add review'});
-};
-
-/* GET 'Add review forum' */
-module.exports.addReview = function(req, res) {
-    res.render('location-review-form', { title: 'Add review'});
-};
-
-/* GET 'About page' */
-module.exports.about = function(req, res) {
-    res.render('generic-text', {title: 'About'});
+module.exports.addReview = function(req, res){
+  res.render('location-review-form', {
+    title: 'Review Starcups on Loc8r',
+    pageHeader: {title: 'Review Starcups'},
+    user: {
+      displayName: "Simon Holmes"
+    }
+  });
 };
