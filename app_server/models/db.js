@@ -2,6 +2,17 @@ var mongoose = require( 'mongoose' );
 var dbURI = 'mongodb://localhost/Loc8r';
 mongoose.connect(dbURI);
 
+var readLine = require ("readline");
+if (process.platform === "win32") {
+  var rl = readLine.createInterface ({
+    input: process.stdin,
+    output: process.stdout
+  });
+  rl.on ("SIGINT", function (){
+    process.emit ("SIGINT");
+  });
+}
+
 var db = mongoose.connection;
 db.on('connected', function () {
   console.log('Mongoose connected to ' + dbURI);
